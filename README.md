@@ -47,3 +47,108 @@ python-dotenv
 web3
 eth-account
 
+## Stop Loss Module
+
+A real-time cryptocurrency stop loss module that integrates with the Hyperliquid testnet for price feeds and smart contracts for automated trading.
+
+## Features
+
+- Real-time price tracking for ETH and BTC
+- Interactive price charts
+- MetaMask wallet integration
+- Smart contract-based stop loss orders
+- Backend price monitoring and execution
+
+## Prerequisites
+
+- Node.js 18+
+- Python 3.8+
+- MetaMask browser extension
+- Git
+
+## Setup
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd stop-loss-module
+```
+
+2. Install backend dependencies:
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+3. Install frontend dependencies:
+```bash
+cd frontend
+npm install
+```
+
+4. Create a `.env` file in the root directory with your configuration:
+```env
+PRIVATE_KEY=your_private_key
+WALLET_ADDRESS=your_wallet_address
+ALCHEMY_API_KEY=your_alchemy_api_key
+CONTRACT_ADDRESS=your_contract_address
+```
+
+5. Create a `.env` file in the frontend directory:
+```env
+VITE_CONTRACT_ADDRESS=your_contract_address
+```
+
+## Running the Application
+
+1. Start the backend server:
+```bash
+cd backend
+python api.py
+```
+
+2. In a new terminal, start the frontend development server:
+```bash
+cd frontend
+npm run dev
+```
+
+3. Open your browser and navigate to `http://localhost:5173`
+
+## Usage
+
+1. Connect your MetaMask wallet using the "Connect Wallet" button
+2. Monitor real-time prices using the interactive charts
+3. Set stop loss orders by:
+   - Selecting the desired cryptocurrency (ETH or BTC)
+   - Entering the stop loss price
+   - Specifying the position size
+   - Clicking "Set Stop Loss"
+
+## Architecture
+
+- Frontend:
+  - React + TypeScript
+  - Vite for build tooling
+  - shadcn/ui for components
+  - ethers.js for blockchain interaction
+  - Recharts for price charts
+  - WebSocket for real-time price updates
+
+- Backend:
+  - FastAPI for REST API
+  - WebSocket client for Hyperliquid price feeds
+  - Smart contract integration for order execution
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+

@@ -1,104 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stop-Loss Registration</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Animation utilities */
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes modalIn {
-      0% { opacity: 0; transform: scale(0.9); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-    
-    .animate-fadeIn {
-      animation: fadeIn 0.6s ease-out both;
-    }
-    
-    .animate-modalIn {
-      animation: modalIn 0.4s ease-in-out both;
-    }
-  </style>
-</head>
-<body class="bg-gradient-to-tr from-[#0f0c29] via-[#302b63] to-[#24243e] text-white min-h-screen px-4 py-8 font-sans transition-all duration-300">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shimmer-trade-flow</title>
+    <meta name="description" content="Lovable Generated Project" />
+    <meta name="author" content="Lovable" />
 
-  <div class="max-w-2xl mx-auto space-y-8">
+    <meta property="og:title" content="shimmer-trade-flow" />
+    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <!-- Wallet Header -->
-    <div class="bg-white/5 backdrop-blur border border-gray-700 rounded-xl shadow-lg p-5 flex justify-between items-center transform transition-transform hover:scale-105">
-      <h2 class="text-xl font-bold tracking-tight text-blue-400">🛡 Stop-Loss Guard</h2>
-      <button id="connect-wallet" class="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-sm rounded text-white transition transform hover:scale-105">
-        Connect
-      </button>
-    </div>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
 
-    <!-- Wallet Address Display -->
-    <p id="wallet-address" class="text-sm text-gray-300 text-center">Not connected</p>
-
-    <!-- Registration Form -->
-    <div class="glass-box p-6 animate-fadeIn">
-      <h1 class="text-2xl font-bold text-center text-blue-400 mb-4">Register Stop-Loss</h1>
-      <form id="register-form" class="space-y-5">
-        <div>
-          <label class="label" for="market">Market</label>
-          <input type="text" id="market" placeholder="e.g., ETH" class="input" />
-        </div>
-        <div>
-          <label class="label" for="threshold">Threshold</label>
-          <input type="number" id="threshold" placeholder="e.g., 1600" class="input" />
-        </div>
-        <div>
-          <label class="label" for="size">Size</label>
-          <input type="number" id="size" placeholder="e.g., 0.5" class="input" />
-        </div>
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition transform hover:scale-105">
-          Submit Order
-        </button>
-      </form>
-      <div id="status" class="mt-4 text-sm text-center text-yellow-400"></div>
-    </div>
-
-    <!-- Orders Table -->
-    <div>
-      <h2 class="text-xl font-semibold text-blue-400 mb-2">Registered Stop-Loss Orders</h2>
-      <div id="orders-table" class="overflow-x-auto">
-        <table class="min-w-full bg-white/10 text-sm text-left text-white backdrop-blur border border-gray-700 rounded-lg">
-          <thead class="bg-white/10 text-blue-300">
-            <tr>
-              <th class="py-2 px-4">Market</th>
-              <th class="py-2 px-4">Threshold</th>
-              <th class="py-2 px-4">Size</th>
-              <th class="py-2 px-4">Triggered</th>
-            </tr>
-          </thead>
-          <tbody id="orders-body" class="divide-y divide-gray-600">
-            <!-- Dynamic rows here with a hover effect added via CSS below -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div id="success-modal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-60 z-50">
-      <div class="bg-gray-900 text-green-400 border border-green-600 p-6 rounded-xl shadow-xl max-w-sm w-full text-center animate-modalIn">
-        <h2 class="text-xl font-bold">✅ Order Submitted!</h2>
-        <p class="text-sm mt-2">Your stop-loss has been registered successfully.</p>
-        <button onclick="closeModal()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded transition transform hover:scale-105 hover:bg-blue-700">
-          OK
-        </button>
-      </div>
-    </div>
-    
-  </div>
-
-  <script src="app.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
