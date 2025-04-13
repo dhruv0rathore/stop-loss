@@ -17,6 +17,9 @@ MOCK_MODE = os.getenv("MOCK_MODE", "false").lower() == "true"
 
 def sign_message(msg_dict):
     """Sign a message using wallet's private key."""
+    if MOCK_MODE:
+        return "0xMOCK_SIGNATURE"
+        
     message = encode_defunct(text=str(msg_dict))
     signed = Account.sign_message(message, private_key=PRIVATE_KEY)
     return signed.signature.hex()
@@ -24,7 +27,11 @@ def sign_message(msg_dict):
 
 def execute_trade(market: str, size: float) -> bool:
     if MOCK_MODE:
-        print(f"🤖 [MOCK MODE] Would execute trade: Sell {size} {market}")
+        print(f"🤖 [MOCK MODE] Executing trade: Sell {size} {market}")
+        print(f"🤖 [MOCK MODE] Trade would cost approximately ${size * 1800:.2f} at current market price")
+        print(f"🤖 [MOCK MODE] Simulating network delay...")
+        time.sleep(1)
+        print(f"🤖 [MOCK MODE] Trade executed successfully!")
         return True
 
     order_payload = {
@@ -62,6 +69,13 @@ def execute_trade(market: str, size: float) -> bool:
         return False
 
 def mark_triggered_onchain(order_id: int, market_price: float):
+    if MOCK_MODE:
+        print(f"🤖 [MOCK MODE] Marking order #{order_id} as triggered at price ${market_price:.2f}")
+        print(f"🤖 [MOCK MODE] Simulating blockchain transaction...")
+        time.sleep(2)
+        print(f"🤖 [MOCK MODE] Transaction confirmed! Gas used: 0.00042 ETH")
+        return True
+        
     from web3 import Web3
     from dotenv import load_dotenv
     from pathlib import Path
